@@ -285,7 +285,7 @@ nginx_conf_add(){
     cat>${nginx_conf_dir}/v2ray.conf<<EOF
     server {
         listen 443 ssl http2;
-        ssl on;
+        #ssl on;
         ssl_certificate       /etc/v2ray/v2ray.crt;
         ssl_certificate_key   /etc/v2ray/v2ray.key;
         ssl_protocols         TLSv1.3 TLSv1.2;
@@ -305,7 +305,7 @@ nginx_conf_add(){
 
         # Show realip in v2ray access.log
         proxy_set_header X-Real-IP $remote_addr;
-        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-For \$proxy_add_x_forwarded_for;
         }
 }
     server {
