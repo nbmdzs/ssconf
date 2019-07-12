@@ -260,7 +260,7 @@ port_exist_check(){
     fi
 }
 acme(){
-    ~/.acme.sh/acme.sh --issue --dns ~/dns_cf -d ${domain} ec-256 --force
+    ~/.acme.sh/acme.sh --issue --dns ~/dns_cf -d ${domain} --keylength ec-256 --force
     if [[ $? -eq 0 ]];then
         echo -e "${OK} ${GreenBG} SSL 证书生成成功 ${Font}"
         sleep 2
